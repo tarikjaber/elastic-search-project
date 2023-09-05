@@ -1,25 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Client } from '@elastic/elasticsearch';
 
 function App() {
+  async function checkClusterStatus() {
+    const client = new Client({
+      node: process.env.REACT_APP_API_URL,
+    });
+
+    try {
+      const response = await client.cluster.health();
+      console.log(response);
+    } catch (error) {
+      console.error('Error fetching cluster status:', error);
+    }
+  }
+
+  useEffect(() => {
+    checkClusterStatus()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <h1>Hello world</h1>
   );
 }
 

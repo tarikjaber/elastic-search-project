@@ -1,8 +1,8 @@
-import { Client } from '@elastic/elasticsearch';
+// import { Client } from '@elastic/elasticsearch';
 
-const client = new Client({
-    node: process.env.REACT_APP_API_URL,
-});
+// const client = new Client({
+//     node: process.env.REACT_APP_API_URL,
+// });
 
 // export async function checkClusterStatus() {
 //     try {
@@ -13,6 +13,6 @@ const client = new Client({
 //     }
 // }
 
-// export function hello() {
-//     console.log('hello');
-// }
+export function hello() {
+    console.log('hello');
+}

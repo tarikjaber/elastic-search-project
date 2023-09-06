@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Client } from '@elastic/elasticsearch';
 
 function App() {
   async function checkClusterStatus() {
-    const client = new Client({
-      node: process.env.REACT_APP_API_URL,
-    });
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     try {
-      const response = await client.cluster.health();
-      console.log(response);
+      const response = await fetch(`${apiUrl}_cluster/health`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log(data);
     } catch (error) {
       console.error('Error fetching cluster status:', error);
     }
   }
 
   useEffect(() => {
+    // Uncomment to actually check the cluster status
     checkClusterStatus()
+
+    console.log("amongus")
   }, [])
 
   return (

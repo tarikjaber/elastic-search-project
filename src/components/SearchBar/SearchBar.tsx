@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
-import { SearchBarWrapper } from './SearchBar.styled';
+import './SearchBar.scss';
 
 interface SearchBarProps {}
 
 const SearchBar: FC<SearchBarProps> = () => (
- <SearchBarWrapper data-testid="SearchBar">
+  <div className="SearchBar" data-testid="SearchBar">
     SearchBar Component
- </SearchBarWrapper>
+  </div>
 );
 
 export default SearchBar;

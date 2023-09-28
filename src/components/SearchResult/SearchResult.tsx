@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
-import { SearchResultWrapper } from './SearchResult.styled';
+import './SearchResult.scss';
 
 interface SearchResultProps {}
 
 const SearchResult: FC<SearchResultProps> = () => (
- <SearchResultWrapper data-testid="SearchResult">
+  <div className="SearchResult" data-testid="SearchResult">
     SearchResult Component
- </SearchResultWrapper>
+  </div>
 );
 
 export default SearchResult;

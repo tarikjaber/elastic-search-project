@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
-import { NavBarWrapper } from './NavBar.styled';
+import './NavBar.scss';
 
 interface NavBarProps {}
 
 const NavBar: FC<NavBarProps> = () => (
- <NavBarWrapper data-testid="NavBar">
+  <div className="NavBar" data-testid="NavBar">
     NavBar Component
- </NavBarWrapper>
+  </div>
 );
 
 export default NavBar;

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
+import Footer from './components/Footer/Footer';
+import Navigationbar from './components/NavBar/NavBar';
 import './App.css';
 
 function App() {
@@ -36,7 +38,10 @@ function App() {
   }, [])
 
   return (
-    <h1>Hello world</h1>
+    <div className="App">
+      <Navigationbar />
+      <Footer />
+    </div>
   );
 }
 
